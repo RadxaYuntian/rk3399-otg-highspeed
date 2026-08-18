@@ -14,7 +14,11 @@ Package: rk3399-otg-highspeed
 Architecture: all
 Section: admin
 Priority: optional
-Depends: ${misc:Depends},
-Description: rk3399-otg-highspeed
+Depends: rsetup,
+         device-tree-compiler,
+         gcc,
+         u-boot-menu,
+         ${misc:Depends},
+Description: Force RK3399 OTG to USB HighSpeed
  This package provides the rk3399-otg-highspeed.
 
