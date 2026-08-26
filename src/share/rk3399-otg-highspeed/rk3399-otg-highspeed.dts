@@ -17,7 +17,6 @@ Use this when you want to connect USB 2.0 devices.";
 	dr_mode = "host";
 	phys = <&u2phy0_otg>;
 	phy-names = "usb2-phy";
-	/delete-property/ extcon;
 };
 
 &u2phy0 {
@@ -27,7 +26,6 @@ Use this when you want to connect USB 2.0 devices.";
 &u2phy0_otg {
 	status = "okay";
 	rockchip,vbus-always-on;
-	/delete-property/ vbus-supply;
 };
 
 &tcphy0 {
