@@ -2,12 +2,13 @@
 set -e
 
 case $1 in
-    configure|triggered)
-        rsetup compile_dtb /usr/share/rk3399-otg-highspeed/rk3399-otg-highspeed.dts /boot/dtbo/rk3399-otg-highspeed.dtbo
-        u-boot-update
-        ;;
+configure | triggered)
+	rsetup compile_dtb /usr/share/rk3399-otg-highspeed/rk3399-otg-highspeed.dts /boot/dtbo/rk3399-otg-highspeed.dtbo
+	u-boot-update
+	deb-systemd-invoke enable rk3399-otg-highspeed.service
+	;;
 esac
-    
+
 #DEBHELPER#
 
 exit 0
