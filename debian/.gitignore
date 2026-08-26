@@ -1,8 +1,7 @@
 /.debhelper
 /debhelper-build-stamp
 /files
-/linux-*/
-/u-boot-*/
+/rk3399-otg-highspeed/
 /*.debhelper.log
 /*.*.debhelper
 /*.substvars

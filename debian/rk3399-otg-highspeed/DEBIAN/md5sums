@@ -1,5 +1,0 @@
-aa305a40932c447ce2889d860a05b61f  lib/systemd/system/rk3399-otg-highspeed.service
-0dd6365e3aa80b031029ff9f9208f982  usr/libexec/rk3399-otg-highspeed/rk3399-otg-highspeed
-4b5cc666765f84b9b562cc1fd8615335  usr/share/doc/rk3399-otg-highspeed/changelog.gz
-f7e69f7b2ef8270904e16499d8fe822b  usr/share/doc/rk3399-otg-highspeed/copyright
-9883a78d62a9e7983b5395fd01af11dc  usr/share/rk3399-otg-highspeed/rk3399-otg-highspeed.dts
