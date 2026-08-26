@@ -30,14 +30,11 @@ print(f"GRF USB3PHY0_CON0={phy:#010x} USB3OTG0_CON1={otg:#010x}")
 EOF
 
 # Re-trigger Type-C HS root hub so already-plugged devices re-enumerate
-if [[ -e /sys/bus/platform/drivers/xhci-hcd/xhci-hcd.1.auto ]]; then
-  echo xhci-hcd.1.auto > /sys/bus/platform/drivers/xhci-hcd/unbind 2>/dev/null || true
-  sleep 0.2
-  echo xhci-hcd.1.auto > /sys/bus/platform/drivers/xhci-hcd/bind 2>/dev/null || true
-elif [[ -e /sys/devices/platform/usb@fe800000/fe800000.usb/xhci-hcd.1.auto ]]; then
-  # Fallback: cycle authorization on usb1
-  if [[ -e /sys/bus/usb/devices/usb1/authorized ]]; then
-    echo 0 > /sys/bus/usb/devices/usb1/authorized || true
-    echo 1 > /sys/bus/usb/devices/usb1/authorized || true
-  fi
+ROOT_HUB="$(echo /sys/devices/platform/usb@fe800000/fe800000.usb/xhci-hcd.*.auto)"
+
+if [[ -n $ROOT_HUB ]]; then
+	ROOT_HUB="$(basename "$ROOT_HUB")"
+	echo "$ROOT_HUB" >/sys/bus/platform/drivers/xhci-hcd/unbind 2>/dev/null || true
+	sleep 0.2
+	echo "$ROOT_HUB" >/sys/bus/platform/drivers/xhci-hcd/bind 2>/dev/null || true
 fi
